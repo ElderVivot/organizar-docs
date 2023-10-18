@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "organizar-docs"
+version = "0.1.0"
+description = ""
+authors = ["Elder Vivot <eldervivot@gmail.com>"]
+readme = "README.md"
+packages = [{include = "organizar_docs"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
