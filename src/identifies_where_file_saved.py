@@ -22,13 +22,13 @@ def identifiesWhereFileSaved(filePath: str, nameFile: str, companie: str, year: 
                 fileDest = fileDest.replace('{companie}', companie).replace('{year}', year).replace('{month}', month)
                 if filePath.find('resumido') >= 0:
                     nameFile = f'Resumido_{nameFile}'
-                # print(filePath, fileDest)
 
                 if os.path.exists(fileDest) is False:
                     os.makedirs(fileDest)
 
                 fileDest = os.path.join(fileDest, nameFile)
                 shutil.move(filePath, fileDest)
+                print(f'- Arquivo {nameFile} copiado com sucesso para {fileDest}')
                 break
         except Exception as e:
             print(e)
