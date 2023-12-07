@@ -2,6 +2,7 @@ import os
 import sys
 import json
 from pathlib import Path
+import PySimpleGUI as sg
 from typing import Dict, List, Any
 from functions import returnDataInDictOrArray
 from list_folders_companies import listFoldersCompanies
@@ -17,14 +18,10 @@ def local_path():
 
 folderSrc = local_path()
 sys.path.append(folderSrc)
-print(folderSrc)
 
 fileJson = os.path.join("C:/autmais/organizar-docs", 'env.json')
 dataEnv = json.load(open(fileJson))
 pathBaseFilesSavedRoutine = dataEnv['pathBaseFilesSavedRoutine']
-
-
-import PySimpleGUI as sg
 
 
 class MainProject():
