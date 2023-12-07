@@ -36,3 +36,39 @@ def treatTextField(value):
         return minimalizeSpaces(removerAcentosECaracteresEspeciais(value.strip().upper()))
     except Exception:
         return ""
+
+
+def treatNumberField(value, isInt=False):
+    if type(value) == int:
+        return value
+    try:
+        value = re.sub("[^0-9]", '', value)
+        if value == "":
+            return 0
+        else:
+            if isInt is True:
+                try:
+                    return int(value)
+                except Exception:
+                    return 0
+            return value
+    except Exception:
+        return 0
+
+
+def returnDataInDictOrArray(data: Any, arrayStructureDataReturn: List[Any], valueDefault='') -> Any:
+    """
+    :data: vector, matrix ou dict with data -> example: {"name": "Obama", "adress": {"zipCode": "1234567"}}
+    :arrayStructureDataReturn: array in order with position of vector/matriz or name property of dict to \
+    return -> example: ['adress', 'zipCode'] -> return is '1234567'
+    """
+    try:
+        dataAccumulated = ''
+        for i in range(len(arrayStructureDataReturn)):
+            if i == 0:
+                dataAccumulated = data[arrayStructureDataReturn[i]]
+            else:
+                dataAccumulated = dataAccumulated[arrayStructureDataReturn[i]]
+        return dataAccumulated
+    except Exception:
+        return valueDefault
